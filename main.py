@@ -45,6 +45,7 @@ def main(argv):
     format_report(report)
 
     if any([t[0] != 0 for t in report]):
+        print(f"Error: Some constraints in {constraints_file} failed when run on data in {data_file}.")
         sys.exit(1)
 
 
