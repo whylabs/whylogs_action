@@ -1,0 +1,20 @@
+# action.yml
+name: 'Whylogs'
+description: 'Calculate WhyLogs profiles and apply tests'
+inputs:
+  constraintsfile:  # json file containing constraint definitions
+    description: 'Constraints definitions'
+    required: true
+    default: 'World'
+  datafile:  # filename containing values for features you want to test. wil be read with pandas
+    description: 'Dataset'
+    required: true
+    default: 'World'
+outputs:
+  time: # id of output
+    description: 'The time we greeted you'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
