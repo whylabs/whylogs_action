@@ -1,20 +1,17 @@
 on: [push]
 
 jobs:
-  hello_world_job:
+  whylogs_constraints_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: validates data against whylogs constraints
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Whylogs step
+      - name: whylogs constraint validation step
         uses: ./ # Uses an action in the root directory
         id: whylogs
         with:
           constraintsfile: 'constraints.json'
           datafile: 'lending_club_1000.csv'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
