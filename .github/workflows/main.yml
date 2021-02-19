@@ -11,13 +11,13 @@ jobs:
         uses: actions/checkout@v2
       - name: whylogs constraint validation step
         uses: ./ # Uses an action in the root directory
-        id: whylogs
+        id: expect-success
         with:
           constraintsfile: 'constraints-succeed.json'
           datafile: 'lending_club_1000.csv'
       - name: whylogs constraint validation step
         uses: ./ # Uses an action in the root directory
-        id: whylogs
+        id: expect-failure
         with:
           constraintsfile: 'constraints-fail.json'
           datafile: 'lending_club_1000.csv'
