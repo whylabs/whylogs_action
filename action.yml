@@ -10,6 +10,11 @@ inputs:
     description: 'Dataset'
     required: true
     default: 'World'
+  expect_failure:
+      description: 'Boolean indication that this set of constraints is expected to fail'
+      required: false
+      default: 'False'
+
 outputs:
   time: # id of output
     description: 'The time we greeted you'

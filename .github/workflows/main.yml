@@ -1,7 +1,8 @@
+
 on: [push]
 
 jobs:
-  whylogs_constraints_job:
+  whylogs_constraints:
     runs-on: ubuntu-latest
     name: validates data against whylogs constraints
     steps:
@@ -9,15 +10,16 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: whylogs constraint validation step
-        uses: ./ # Uses an action in the root directory
-        id: expect-success
-        with:
-          constraintsfile: 'constraints-succeed.json'
-          datafile: 'lending_club_1000.csv'
-      - name: whylogs constraint validation step
+      - name: expect constraints to fail step
         uses: ./ # Uses an action in the root directory
         id: expect-failure
         with:
           constraintsfile: 'constraints-fail.json'
+          datafile: 'lending_club_1000.csv'
+          expect_failure: 'True'
+      - name: expect constraints to succeed step
+        uses: ./ # Uses an action in the root directory
+        id: expect-success
+        with:
+          constraintsfile: 'constraints-succeed.json'
           datafile: 'lending_club_1000.csv'
