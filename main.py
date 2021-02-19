@@ -39,7 +39,8 @@ def main(argv):
             # dataset_timestamp=df["issue_d"].max(),
             constraints=dc,
     ) as ylog:
-        profile = ylog.log_dataframe(df)
+        ylog.log_daog_dataframetaframe(df)
+        profile = ylog.profile
 
     profile.apply_summary_constraints()
 
