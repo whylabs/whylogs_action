@@ -41,6 +41,8 @@ def main(argv):
     ) as ylog:
         profile = ylog.log_dataframe(df)
 
+    profile.apply_summary_constraints()
+
     report = dc.report()
     format_report(report)
 

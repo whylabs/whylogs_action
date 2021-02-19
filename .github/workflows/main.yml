@@ -13,5 +13,11 @@ jobs:
         uses: ./ # Uses an action in the root directory
         id: whylogs
         with:
-          constraintsfile: 'constraints.json'
+          constraintsfile: 'constraints-succeed.json'
+          datafile: 'lending_club_1000.csv'
+      - name: whylogs constraint validation step
+        uses: ./ # Uses an action in the root directory
+        id: whylogs
+        with:
+          constraintsfile: 'constraints-fail.json'
           datafile: 'lending_club_1000.csv'
